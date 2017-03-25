@@ -8,6 +8,19 @@ class BooksListController{
       { "id": 3, "title": "Book Three" }
     ];
   };
+
+  getBooksList(){
+    //GET call and populate the book data
+  }
+
+  cleanLibrary(){
+    //delete call to bookService
+  }
+
+  addBookToLibrary(){
+    //POST call to book service 
+  }
+
 }
 
 export default BooksListController;
