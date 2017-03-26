@@ -4,9 +4,14 @@ import 'angular-sanitize/angular-sanitize.js';
 import 'restangular/dist/restangular.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'angular-ui-bootstrap';
+import './css/style.css';
 
-// import toaster from 'angularjs-toaster';
-// import 'angularjs-toaster/toaster.css';
+import toaster from 'angularjs-toaster';
+import 'angularjs-toaster/toaster.css';
+
+import 'pace-progress/themes/blue/pace-theme-minimal.css';
+require('imports-loader?define=>false!pace-progress');
+
 import angularUIRouter from 'angular-ui-router';
 
 import booksModule from './books/books.module';

@@ -3,11 +3,28 @@ class BooksListController{
     'ngInject';
     this.state = $state;
     this.list = [
-      { "id": 1, "title": "Book one" },
-      { "id": 2, "title": "Book Two" },
-      { "id": 3, "title": "Book Three" }
+      {
+            "id": 1,
+            "author": "Robert C. Martin",
+            "categories": "programming",
+            "publisher": "Prentice Hall",
+            "title": "Clean Code"
+        },
+      {
+            "id": 2,
+            "author": "Robert C. Martin",
+            "categories": "programming",
+            "publisher": "Prentice Hall",
+            "title": "Clean Code"
+        },
+      {
+            "id": 3,
+            "author": "Robert C. Martin",
+            "categories": "programming",
+            "publisher": "Prentice Hall",
+            "title": "Clean Code"
+        }
     ];
-    console.log("parent");
   };
 
   getBooksList(){
