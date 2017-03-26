@@ -9,7 +9,8 @@ class BookController {
             "author": "Robert C. Martin",
             "categories": "programming",
             "publisher": "Prentice Hall",
-            "title": "Clean Code"
+            "title": "Clean Code",
+            url: "/book/2"
         };
     };
 
@@ -23,7 +24,7 @@ class BookController {
         let vm = this
         let modalInstance = this.uibModal.open({
             animation: true,
-            size:'lg',
+            size: 'lg',
             templateUrl: 'app/books/edit-book.html',
             controller: ['$scope', 'bookData', '$uibModalInstance', function ($scope, bookData, $uibModalInstance) {
                 $scope.book = bookData;
@@ -34,7 +35,7 @@ class BookController {
                 $scope.cancel = function () {
                     $uibModalInstance.dismiss('cancel');
                 };
-                
+
             }],
             resolve: {
                 bookData: function () {
@@ -43,12 +44,13 @@ class BookController {
             }
         });
 
-        modalInstance.result.then(function (selectedItem) {
+        modalInstance.result.then(function (updatedBook) {
             //Make the put call. and in the success
-            this.booksService.updateBookData
-            vm.state.reload();
-            vm.toaster.pop('success', "Success", "Book Data updated");
-        }, function () {
+            this.booksService.updateBookData(updatedBook.url, _.omit(updateBookData, ['url'])).then(function (response) {
+                vm.state.reload();
+                vm.toaster.pop('success', "Success", "${response.title} updated");
+            })
+        }, function (modalError) {
         });
 
     }
@@ -69,7 +71,7 @@ class BookController {
                 $scope.cancel = function () {
                     $uibModalInstance.dismiss('cancel');
                 };
-                
+
             }],
             resolve: {
                 bookData: function () {
@@ -81,7 +83,7 @@ class BookController {
         deleteModalInstance.result.then(function (selectedItem) {
             //Delete call
             vm.toaster.pop('info', "Alert", "Book removed from library");
-            vm.state.go('books',{},{ reload: true });
+            vm.state.go('books', {}, { reload: true });
         }, function () {
         });
     }

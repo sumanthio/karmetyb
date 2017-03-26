@@ -78,12 +78,6 @@ const config = {
     proxy: {
       '/api/*': {
         target: 'https://interview-api-staging.bytemark.co/books',
-      },
-      '/cato/*': {
-        target: 'http://23.101.133.43:8080/',
-        rewrite: function (req) {
-          req.url = req.url.replace('cato','api');
-        }
       }
     }
   }
