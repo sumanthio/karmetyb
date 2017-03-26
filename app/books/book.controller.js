@@ -45,6 +45,7 @@ class BookController {
 
         modalInstance.result.then(function (selectedItem) {
             //Make the put call. and in the success
+            vm.state.reload();
             vm.toaster.pop('success', "Success", "Book Data updated");
         }, function () {
         });
@@ -60,7 +61,6 @@ class BookController {
             templateUrl: 'app/books/delete-confirmation.html',
             controller: ['$scope', 'bookData', '$uibModalInstance', function ($scope, bookData, $uibModalInstance) {
                 $scope.book = bookData;
-                console.log(bookData);
                 $scope.deleteBook = function (book) {
                     $uibModalInstance.close(book);
                 };
@@ -80,6 +80,7 @@ class BookController {
         deleteModalInstance.result.then(function (selectedItem) {
             //Delete call
             vm.toaster.pop('info', "Alert", "Book removed from library");
+            vm.state.go('books',{},{ reload: true });
         }, function () {
         });
     }

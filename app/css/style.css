@@ -3,6 +3,12 @@
      margin: 0 !important;
 }
 
+/*pace over rides*/
+
+.pace .pace-progress {
+  height: 5px !important;
+}
+
 /*overrides for bootstrapv4's modal*/
 
 .fade.in {

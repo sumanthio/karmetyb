@@ -9,7 +9,7 @@ import './css/style.css';
 import toaster from 'angularjs-toaster';
 import 'angularjs-toaster/toaster.css';
 
-import 'pace-progress/themes/blue/pace-theme-minimal.css';
+import 'pace-progress/themes/white/pace-theme-minimal.css';
 require('imports-loader?define=>false!pace-progress');
 
 import angularUIRouter from 'angular-ui-router';
