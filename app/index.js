@@ -29,7 +29,6 @@ let booksApp = angular.module('booksApp', [
 booksApp.config(($locationProvider, $urlRouterProvider, $uibTooltipProvider) => {
   $locationProvider.hashPrefix('');
   $urlRouterProvider.otherwise("/books");
-
   $uibTooltipProvider.options({
     delay: { show: 100, hide: 900 }
   });
