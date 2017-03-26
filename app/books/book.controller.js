@@ -1,9 +1,10 @@
 class BookController {
-    constructor($state, $uibModal, toaster) {
+    constructor($state, $uibModal, BooksService, toaster) {
         'ngInject';
         this.state = $state;
         this.uibModal = $uibModal;
         this.toaster = toaster;
+        this.booksService = BooksService;
         this.data = {
             "id": 1,
             "author": "Robert C. Martin",
@@ -46,7 +47,7 @@ class BookController {
 
         modalInstance.result.then(function (updatedBook) {
             //Make the put call. and in the success
-            this.booksService.updateBookData(updatedBook.url, _.omit(updateBookData, ['url'])).then(function (response) {
+            vm.booksService.updateBookData(updatedBook.url, _.omit(updateBookData, ['url'])).then(function (response) {
                 vm.state.reload();
                 vm.toaster.pop('success', "Success", "${response.title} updated");
             })
@@ -82,9 +83,12 @@ class BookController {
 
         deleteModalInstance.result.then(function (selectedItem) {
             //Delete call
-            vm.toaster.pop('info', "Alert", "Book removed from library");
-            vm.state.go('books', {}, { reload: true });
-        }, function () {
+            vm.booksService.deleteBook(selectedItem).then(function () {
+                vm.toaster.pop('info', "Alert", "Book removed from library");
+                vm.state.go('books', {}, { reload: true });
+            })
+
+        }, function (modalError) {
         });
     }
 }

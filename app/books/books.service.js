@@ -30,16 +30,16 @@ class BooksService {
         });
     }
 
-    deleteBook(id) {
+    deleteBook(book) {
         //books/id
-        return this.books.getList().then(function (response) {
+        return this.booksBaseUrl.one(book.url).remove().then(function (response) {
             return response;
         });
     }
 
     deleteLibrary(id) {
         //books delete
-        return this.books.getList().then(function (response) {
+        return this.booksBaseUrl.one('clean').remove().then(function (response) {
             return response;
         });
     }
