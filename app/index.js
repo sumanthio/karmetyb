@@ -4,6 +4,7 @@ import 'angular-sanitize/angular-sanitize.js';
 import 'restangular/dist/restangular.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'angular-ui-bootstrap';
+import 'font-awesome/css/font-awesome.css';
 import './css/style.css';
 
 import toaster from 'angularjs-toaster';

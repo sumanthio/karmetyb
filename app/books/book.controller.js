@@ -23,6 +23,7 @@ class BookController {
         let vm = this
         let modalInstance = this.uibModal.open({
             animation: true,
+            size:'lg',
             templateUrl: 'app/books/edit-book.html',
             controller: ['$scope', 'bookData', '$uibModalInstance', function ($scope, bookData, $uibModalInstance) {
                 $scope.book = bookData;

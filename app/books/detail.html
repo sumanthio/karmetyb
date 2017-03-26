@@ -1,28 +1,26 @@
-<div class="row">
-    <div class="col-sm-10">
-        <button class="btn btn-link" ui-sref="books">List(Get a header)</button>
-    </div>
-</div>
-
 <div class="row" ng-init="book.getBookData()">
     <div class="col-sm-4 text-center">
         <img src="http://placehold.it/150x250" class="img-rounded">
     </div>
     <div class="col-sm-8">
-        <blockquote>
-            <p>{{book.data.title}}</p>
-            <footer><cite title="Source Title">{{book.data.author}}</cite></footer>
+        <blockquote class="blockquote">
+            <p class="mb-0">{{book.data.title}}</p>
+            <footer class="blockquote-footer"><cite title="Source Title">{{book.data.author}}</cite></footer>
         </blockquote>
-        <dl class="dl-horizontal">
-            <dt>ID</dt>
-            <dd>{{book.data.id}}</dd>
-            <dt>Publisher</dt>
-            <dd>{{book.data.publisher}}</dd>
-            <dt>Categories</dt>
-            <dd>{{book.data.categories}}</dd>
+
+        <dl class="row well text-xs-center">
+            <dt class="col-sm-3">ID</dt>
+            <dd class="col-sm-9">{{book.data.id}}</dd>
+            <dt class="col-sm-3">Publisher</dt>
+            <dd class="col-sm-9">{{book.data.publisher}}</dd>
+            <dt class="col-sm-3">Categories</dt>
+            <dd class="col-sm-9">{{book.data.categories}}</dd>
         </dl>
-        //Add font awesome here
-        <button class="btn btn-primary" ng-click="book.editBookData(book.data)">Edit</button>
-        <button class="btn btn-danger" ng-click="book.removeBook(book.data)">Remove</button>
+        <div class="row">
+            <div class="col-xs-12 mx-auto">
+                <button class="btn btn-primary" ng-click="book.editBookData(book.data)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
+                <button class="btn btn-danger" ng-click="book.removeBook(book.data)"><i class="fa fa-trash" aria-hidden="true"></i> Remove</button>
+            </div>
+        </div>
     </div>
 </div>
