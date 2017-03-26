@@ -11,6 +11,7 @@ class BooksListController{
   };
 
   getBooksList(){
+
     //GET call and populate the book data
   }
 
