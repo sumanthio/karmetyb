@@ -1,8 +1,9 @@
 class BookController {
-    constructor($state, $uibModal) {
+    constructor($state, $uibModal, toaster) {
         'ngInject';
         this.state = $state;
         this.uibModal = $uibModal;
+        this.toaster = toaster;
         this.data = {
             "id": 1,
             "author": "Robert C. Martin",
@@ -17,17 +18,17 @@ class BookController {
     }
 
 
-    editBookData() {
+    editBookData(book) {
         //open up modal and PUT call to BookService
         let vm = this
-        let modalInstance = vm.uibModal.open({
+        let modalInstance = this.uibModal.open({
             animation: true,
-            templateUrl: require('./delete-confirmation.html'),
+            templateUrl: 'app/books/edit-book.html',
             controller: ['$scope', 'bookData', '$uibModalInstance', function ($scope, bookData, $uibModalInstance) {
                 $scope.book = bookData;
-                console.log(bookData);
-                $scope.ok = function () {
-                    $uibModalInstance.close($ctrl.selected.item);
+                console.log("twst");
+                $scope.update = function (book) {
+                    $uibModalInstance.close(book);
                 };
 
                 $scope.cancel = function () {
@@ -43,11 +44,10 @@ class BookController {
         });
 
         modalInstance.result.then(function (selectedItem) {
-            $ctrl.selected = selectedItem;
-            //Toast a delete message
+            //Make the put call. and in the success
+            vm.toaster.pop('success', "Success", "Book Data updated");
         }, function () {
         });
-    }
 
     }
 
@@ -55,14 +55,14 @@ class BookController {
         //open up delete book confirmation
         //DELETE call and redirect to list view
         let vm = this
-        let modalInstance = vm.uibModal.open({
+        let deleteModalInstance = this.uibModal.open({
             animation: true,
-            templateUrl: require('./delete-confirmation.html'),
+            templateUrl: 'app/books/delete-confirmation.html',
             controller: ['$scope', 'bookData', '$uibModalInstance', function ($scope, bookData, $uibModalInstance) {
                 $scope.book = bookData;
                 console.log(bookData);
-                $scope.ok = function () {
-                    $uibModalInstance.close($ctrl.selected.item);
+                $scope.deleteBook = function (book) {
+                    $uibModalInstance.close(book);
                 };
 
                 $scope.cancel = function () {
@@ -77,9 +77,9 @@ class BookController {
             }
         });
 
-        modalInstance.result.then(function (selectedItem) {
-            $ctrl.selected = selectedItem;
-            //Toast a delete message
+        deleteModalInstance.result.then(function (selectedItem) {
+            //Delete call
+            vm.toaster.pop('info', "Alert", "Book removed from library");
         }, function () {
         });
     }

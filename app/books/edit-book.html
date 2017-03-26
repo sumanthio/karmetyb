@@ -4,42 +4,42 @@
 <div class="modal-body" id="modal-body">
     <div class="row">
         <div class="col-sm-4 text-center">
-            <img src="http://placehold.it/75x125" class="img-rounded">
+            <img src="http://placehold.it/100x125" class="img-rounded">
         </div>
         <div class="col-sm-8">
             <div class="form-group row">
+                <label for="example-text-input" class="col-2 col-form-label">ID</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" ng-model="book.id" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="example-text-input" class="col-2 col-form-label">Title</label>
                 <div class="col-10">
-                    <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+                    <input class="form-control" type="text" ng-model="book.title">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="example-search-input" class="col-2 col-form-label">Search</label>
+                <label for="example-text-input" class="col-2 col-form-label">Author</label>
                 <div class="col-10">
-                    <input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
+                    <input class="form-control" type="text" ng-model="book.author">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="example-email-input" class="col-2 col-form-label">Email</label>
+                <label for="example-text-input" class="col-2 col-form-label">Categories</label>
                 <div class="col-10">
-                    <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
+                    <input class="form-control" type="text" ng-model="book.categories">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="example-url-input" class="col-2 col-form-label">URL</label>
+                <label for="example-text-input" class="col-2 col-form-label">Publisher</label>
                 <div class="col-10">
-                    <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
-                <div class="col-10">
-                    <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
+                    <input class="form-control" type="text" ng-model="book.publisher">
                 </div>
             </div>
         </div>
         <div class="row col-sm-8 text-center">
-            <button class="btn btn-danger" type="button" ng-click="ok()">Delete</button>
+            <button class="btn btn-success" type="button" ng-click="update(book)">Update</button>
             <button class="btn btn-info" type="button" ng-click="cancel()">Cancel</button>
         </div>
 

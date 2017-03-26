@@ -22,6 +22,7 @@ let booksApp = angular.module('booksApp', [
   'ngAnimate',
   'ngSanitize',
   'ui.bootstrap',
+  toaster,
   booksModule
 ]);
 
