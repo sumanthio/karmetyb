@@ -13,8 +13,6 @@ class BooksConfig {
                 templateUrl: 'app/books/detail.html',
                 controller: 'BookController as book'
             })
-
-        RestangularProvider.setDefaultHeaders({'Access-Control-Allow-Origin' : 'http://localhost:9100'});
     }
 
 }

@@ -28,11 +28,11 @@ class BooksListController {
 
   getBooksList() {
     let vm = this;
-    // this.booksService.getBooksList().then(function (response) {
-    //   vm.list = response
-    // }, function () {
-    //   vm.toaster.pop('error', "Error", "Something went wrong");
-    // });
+    this.booksService.getBooksList().then(function (response) {
+      vm.list = response
+    }, function () {
+      vm.toaster.pop('error', "Error", "Something went wrong");
+    });
   }
 
   cleanLibrary() {

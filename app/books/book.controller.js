@@ -45,6 +45,7 @@ class BookController {
 
         modalInstance.result.then(function (selectedItem) {
             //Make the put call. and in the success
+            this.booksService.updateBookData
             vm.state.reload();
             vm.toaster.pop('success', "Success", "Book Data updated");
         }, function () {

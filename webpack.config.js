@@ -77,8 +77,7 @@ const config = {
   devServer: {
     proxy: {
       '/api/*': {
-        target: 'http://acpvm9.cloudapp.net:8080/',
-        //target: 'http://23.101.133.43:8080/',
+        target: 'https://interview-api-staging.bytemark.co/books',
       },
       '/cato/*': {
         target: 'http://23.101.133.43:8080/',

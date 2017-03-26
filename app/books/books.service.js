@@ -32,7 +32,7 @@ class BooksService {
 
     updateBookData(book) {
         //books/id
-        return this.booksBaseUrl.one(book.url).one().customPUT(book).then(function (response) {
+        return this.booksBaseUrl.one(book.url).one().customPUT(data).then(function (response) {
             return response;
         });
     }
