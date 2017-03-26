@@ -10,7 +10,7 @@ class BooksService {
         return this.booksBaseUrl.all('books').getList();
     }
 
-    addBook(data) {
+    addBook(book) {
         //books/id POST change
         // {
         //     "author": "Robert C. Martin",
@@ -18,7 +18,7 @@ class BooksService {
         //     "publisher": "Prentice Hall",
         //     "title": "Clean Code"
         // }
-        return this.booksBaseUrl.all('books').post(data).then(function (response) {
+        return this.booksBaseUrl.one(book.url).one().customPUT(data).then(function (response) {
             return response;
         });
     }
@@ -30,9 +30,9 @@ class BooksService {
         });
     }
 
-    updateBookData(id) {
+    updateBookData(book) {
         //books/id
-        return this.books.getList().then(function (response) {
+        return this.booksBaseUrl.one(book.url).one().customPUT(book).then(function (response) {
             return response;
         });
     }
