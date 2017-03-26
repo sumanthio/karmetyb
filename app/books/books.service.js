@@ -1,15 +1,13 @@
 class BooksService {
 
-    constructor(Restangular) {
+    constructor(Restangular, BooksBaseService) {
         'ngInject';
-        this.books = Restangular.all('books');
+        this.booksBaseUrl = BooksBaseService;
         //observe the webpack's endpoint config
     }
 
     getBooksList() {
-        return this.books.getList().then(function (response) {
-            return response;
-        });
+        return this.booksBaseUrl.all('books').getList();
     }
 
     addBook(data) {
@@ -20,7 +18,7 @@ class BooksService {
         //     "publisher": "Prentice Hall",
         //     "title": "Clean Code"
         // }
-        return this.books.getList().then(function (response) {
+        return this.booksBaseUrl.all('books').post(data).then(function (response) {
             return response;
         });
     }

@@ -27,7 +27,6 @@ class BookController {
             templateUrl: 'app/books/edit-book.html',
             controller: ['$scope', 'bookData', '$uibModalInstance', function ($scope, bookData, $uibModalInstance) {
                 $scope.book = bookData;
-                console.log("twst");
                 $scope.update = function (book) {
                     $uibModalInstance.close(book);
                 };

@@ -1,5 +1,6 @@
 class BooksConfig {
-    static initRoute($stateProvider) {
+    static initRoute($stateProvider, RestangularProvider) {
+
         'ngInject';
         $stateProvider
             .state('books', {
@@ -8,11 +9,12 @@ class BooksConfig {
                 controller: 'BooksListController as books'
             })
             .state('single', {
-                url: '/books/:id',
+                url: '/book/:id',
                 templateUrl: 'app/books/detail.html',
                 controller: 'BookController as book'
             })
 
+        RestangularProvider.setDefaultHeaders({'Access-Control-Allow-Origin' : 'http://localhost:9100'});
     }
 
 }
