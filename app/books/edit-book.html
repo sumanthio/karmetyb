@@ -3,51 +3,50 @@
 </div>
 <div class="modal-body" id="modal-body">
     <div class="row">
-        <div class="row">
             <div class="col-sm-4 text-center">
-            <img src="http://placehold.it/100x125" class="img-rounded">
-        </div>
-        <div class="col-sm-8">
-            <div class="form-group row">
-                <label for="example-text-input" class="col-2 col-form-label">ID</label>
-                <div class="col-10">
-                    <input class="form-control" type="text" ng-model="book.id" readonly>
+                <img src="http://placehold.it/100x125" class="img-rounded">
+            </div>
+            <div class="col-sm-8">
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-4 col-form-label">ID</label>
+                    <div class="col-8">
+                        <input class="form-control" type="text" ng-model="book.id" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-4 col-form-label">Title</label>
+                    <div class="col-8">
+                        <input class="form-control" type="text" ng-model="book.title">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-4 col-form-label">Author</label>
+                    <div class="col-8">
+                        <input class="form-control" type="text" ng-model="book.author">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-4 col-form-label">Categories</label>
+                    <div class="col-8">
+                        <input class="form-control" type="text" ng-model="book.categories">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-4 col-form-label">Publisher</label>
+                    <div class="col-8">
+                        <input class="form-control" type="text" ng-model="book.publisher">
+                    </div>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="example-text-input" class="col-2 col-form-label">Title</label>
-                <div class="col-10">
-                    <input class="form-control" type="text" ng-model="book.title">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="example-text-input" class="col-2 col-form-label">Author</label>
-                <div class="col-10">
-                    <input class="form-control" type="text" ng-model="book.author">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="example-text-input" class="col-2 col-form-label">Categories</label>
-                <div class="col-10">
-                    <input class="form-control" type="text" ng-model="book.categories">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="example-text-input" class="col-2 col-form-label">Publisher</label>
-                <div class="col-10">
-                    <input class="form-control" type="text" ng-model="book.publisher">
-                </div>
-            </div>
-        </div>
         </div>
         <div class="row">
             <div class="col-xs-12 mx-auto">
-                <button class="btn btn-success" type="button" ng-click="update(book)">Update</button>
+                <button class="btn btn-success" type="button" ng-click="update(book)"><i class="fa fa-check-square" aria-hidden="true"></i> Update</button>
                 <button class="btn btn-info" type="button" ng-click="cancel()">Cancel</button>
             </div>
         </div>
-    </div>
+</div>
     <div class="modal-footer text-center">
-        <button class="btn btn-primary" type="button" ng-click="cancel()">Close</button>
+        <button class="btn btn-sm btn-primary" type="button" ng-click="cancel()">Close</button>
     </div>
 </div>
