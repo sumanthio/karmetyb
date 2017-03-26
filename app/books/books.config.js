@@ -4,13 +4,12 @@ class BooksConfig {
         $stateProvider
             .state('books', {
                 url: '/books',
-                templateUrl: require('./books-list.html'),
+                templateUrl: 'app/books/list.html',
                 controller: 'BooksListController as books'
             })
-            .state('book', {
-                url: '/:id',
-                parent: 'books',
-                templateUrl: require('./book.html'),
+            .state('single', {
+                url: '/books/:id',
+                templateUrl: 'app/books/detail.html',
                 controller: 'BookController as book'
             })
 

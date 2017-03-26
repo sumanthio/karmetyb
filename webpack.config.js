@@ -55,10 +55,15 @@ const config = {
               
             ]
         }, 
-    //   {
-    //     test: [/fontawesome-webfont\.svg/, /fontawesome-webfont\.eot/, /fontawesome-webfont\.ttf/, /fontawesome-webfont\.woff/, /fontawesome-webfont\.woff2/, /glyphicons-halflings-regular\.svg/, /glyphicons-halflings-regular\.eot/, /glyphicons-halflings-regular\.ttf/, /glyphicons-halflings-regular\.woff/, /glyphicons-halflings-regular\.woff2/],
-    //     loader: 'file-loader?name=fonts/[name].[ext]'
-    //   }
+      {
+        test: [/fontawesome-webfont\.svg/, /fontawesome-webfont\.eot/, /fontawesome-webfont\.ttf/, /fontawesome-webfont\.woff/, /fontawesome-webfont\.woff2/, /glyphicons-halflings-regular\.svg/, /glyphicons-halflings-regular\.eot/, /glyphicons-halflings-regular\.ttf/, /glyphicons-halflings-regular\.woff/, /glyphicons-halflings-regular\.woff2/],
+        use: [{
+          loader: "file-loader",
+          options: {
+            name: "fonts"
+          }
+        }]
+      }
       ]
   },
   plugins: [

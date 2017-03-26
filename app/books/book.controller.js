@@ -5,6 +5,7 @@ class BookController{
     this.data = [
       { "id": 1, "title": "Book one" }
     ];
+    console.log("child");
   };
 
   editBookDetails(){

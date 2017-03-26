@@ -2,13 +2,14 @@ import 'angular';
 import 'angular-animate/angular-animate.js';
 import 'angular-sanitize/angular-sanitize.js';
 import 'restangular/dist/restangular.js';
+import 'bootstrap/dist/css/bootstrap.css';
 import 'angular-ui-bootstrap';
 
 // import toaster from 'angularjs-toaster';
 // import 'angularjs-toaster/toaster.css';
 import angularUIRouter from 'angular-ui-router';
 
-import books from './books/books.module';
+import booksModule from './books/books.module';
 
 let booksApp = angular.module('booksApp', [
   angularUIRouter,
@@ -16,12 +17,14 @@ let booksApp = angular.module('booksApp', [
   'ngAnimate',
   'ngSanitize',
   'ui.bootstrap',
-  books
+  booksModule
 ]);
 
-booksApp.config(['$urlRouterProvider','$uibTooltipProvider',($urlRouterProvider, $uibTooltipProvider) => {
+booksApp.config(($locationProvider, $urlRouterProvider, $uibTooltipProvider) => {
+  $locationProvider.hashPrefix('');
   $urlRouterProvider.otherwise("/books");
+
   $uibTooltipProvider.options({
     delay: { show: 100, hide: 900 }
   });
-}]);
+});

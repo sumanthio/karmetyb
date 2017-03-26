@@ -7,6 +7,7 @@ class BooksListController{
       { "id": 2, "title": "Book Two" },
       { "id": 3, "title": "Book Three" }
     ];
+    console.log("parent");
   };
 
   getBooksList(){
