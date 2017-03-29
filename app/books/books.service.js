@@ -10,8 +10,8 @@ class BooksService {
         return this.booksBaseUrl.all('books').getList();
     }
 
-    addBook(book) {
-        return this.booksBaseUrl.all('books').customPOST(data).then(function (response) {
+    addBook(bookData) {
+        return this.booksBaseUrl.all('books').customPOST(bookData).then(function (response) {
             return response;
         });
     }

@@ -53,7 +53,7 @@ class BooksListController {
           title:'', publisher:'', categories:'', author:''
           
         }
-        $scope.update = function (book) {
+        $scope.addBNewBook = function (book) {
           $uibModalInstance.close(book);
         };
 
@@ -64,11 +64,11 @@ class BooksListController {
       }]
     });
 
-    modalInstance.result.then(function (updatedBook) {
+    modalInstance.result.then(function (newBook) {
       //Make the put call. and in the success
-      vm.booksService.updateBookData(updatedBook.url, _.omit(updateBookData, ['url'])).then(function (response) {
+      vm.booksService.addBook(newBook).then(function (response) {
         vm.state.reload();
-        vm.toaster.pop('success', "Success", "${response.title} updated");
+        vm.toaster.pop('success', "Success", "${response.title} added");
       })
     }, function (modalError) {
     });
