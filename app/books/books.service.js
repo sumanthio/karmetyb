@@ -31,7 +31,7 @@ class BooksService {
     }
 
     deleteBook(book) {
-        //books/id
+        //book/id to be proxied to "books/id"
         return this.booksBaseUrl.one(book.url).remove().then(function (response) {
             return response;
         });
