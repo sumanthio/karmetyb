@@ -18,18 +18,7 @@
       </div>
       <div class="card-block">
         <div class="card-deck" ng-init="books.getBooksList()">
-          <div class="card col-xs-6 col-sm-6 col-md-4 m-1" ng-repeat="book in books.list">
-            <img class="card-img-top" src="http://placehold.it/250x125" alt="Card image cap">
-            <div class="card-block">
-              <h4 class="card-title">{{book.title}}</h4>
-              <p class="card-text">Description (if any).</p>
-            </div>
-            <div class="card-footer text-xs-center">
-              <a href="/#{{book.url}}"> <button class="btn btn-success btn-sm"><i class="fa fa-folder-open" aria-hidden="true"></i> View</button></a>
-              <button class="btn btn-danger btn-sm" ng-click="books.deleteBook(book)"><i class="fa fa-times" aria-hidden="true"></i> Remove</button>
-              <small class="text-right">2 mins ago</small>
-            </div>
-          </div>
+          <book ng-repeat="book in books.list" model="book" on-remove-click=books.deleteBook(book)></book>
         </div>
       </div>
     </div>

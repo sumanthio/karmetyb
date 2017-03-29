@@ -1,6 +1,7 @@
 import BooksConfig from './books.config';
 import BooksController from './books.controller';
 import BooksService from './books.service';
+import BookDirective from './book.component';
 
 let booksModule = angular.module('booksApp.books', [])
 
@@ -14,6 +15,7 @@ booksModule.service('BooksBaseService', (Restangular) => {
 
 booksModule.service('BooksService', BooksService);
 booksModule.controller('BooksController', BooksController);
+booksModule.directive('book', ()=> new BookDirective());
 
 
 export default booksModule = booksModule.name;
