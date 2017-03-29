@@ -16,8 +16,12 @@
           </li>
         </ul>
       </div>
-      <div class="card-block">
-        <div class="card-deck" ng-init="books.getBooksList()">
+      <div class="card-block" ng-init="books.getBooksList()">
+        <div class="card-deck" ng-hide="books.list.length>0">
+          No books in your Library. Please add.
+        </div>
+        <div class="card-deck" ng-show="books.list.length>0">
+          {{books.list}}
           <book ng-repeat="book in books.list" model="book" on-remove-click=books.deleteBook(book)></book>
         </div>
       </div>

@@ -14,15 +14,16 @@ class BooksListController {
     let vm = this;
     this.booksService.getBooksList().then(
       function (response) {
-      vm.list = response;
-    }, function () {
-      vm.toaster.pop('error', "Error", "Something went wrong");
-    });
+        vm.list = response;
+      }, function () {
+        vm.toaster.pop('error', "Error", "Something went wrong");
+      });
   }
 
   getBookData() {
     let vm = this;
     this.booksService.getBookData(this.stateParams.id).then(function (response) {
+      console.log(response);
       vm.data = response;
     }, function () {
       vm.toaster.pop('error', "Error", "Something went wrong");

@@ -34,29 +34,18 @@ booksApp.config(($locationProvider, $urlRouterProvider, $qProvider, $uibTooltipP
   $uibTooltipProvider.options({
     delay: { show: 100, hide: 900 }
   });
+
+  // Just to solve the book/ vs books/ bug in API
+  
   $httpProvider.interceptors.push(function ($q) {
     return {
       'request': function (config) {
         if (config.url.indexOf('book/') > -1) {
           config.url = config.url.replace('book','books');
         }
-        console.log(config.url);
         return config || $q.when(config);
       }
 
     }
   });
 });
-
-booksApp.run((Restangular)=>{
-  Restangular.setErrorInterceptor(function (response, deferred, responseHandler) {
-    console.log("Run",args);
-    debugger;
-    if (response.status >= 400) {
-      toaster.pop('error', "Error", "Something went wrong");
-      console.log('an error occured', response);
-      return false;
-    }
-    return true;
-  });
-})

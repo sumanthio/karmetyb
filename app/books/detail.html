@@ -6,13 +6,17 @@
                     <li class="nav-item">
                         <button class="btn btn-sm btn-link m-2" ui-sref="books"><i class="fa fa-book" aria-hidden="true"></i> list</button>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" ng-show="books.data.title == undefined">
+                        <span class="nav-link">No Book Present with this ID</span>
+                    </li>
+                    <li class="nav-item" ng-show="books.data.length !== undefined">
+                        {{books.data}}
                         <span class="nav-link">{{books.data.title}}'s Details</span>
                     </li>
                 </ul>
             </div>
             <div class="card-block">
-                <div class="row">
+                <div class="row" ng-show="books.data.title !== undefined">
                     <div class="col-sm-4 text-center">
                         <img src="http://placehold.it/150x250" class="img-rounded">
                     </div>
