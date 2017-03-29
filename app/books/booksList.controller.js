@@ -36,8 +36,35 @@ class BooksListController {
     });
   }
 
-  cleanLibrary() {
+  deleteLibrary() {
     //delete call to bookService
+    let vm = this
+    let modalInstance = this.uibModal.open({
+      animation: true,
+      size: 'sm',
+      templateUrl: 'app/books/confirm-delete-library.html',
+      controller: ['$scope', '$uibModalInstance', function ($scope, $uibModalInstance) {
+
+        $scope.cleanLibrary = function () {
+          $uibModalInstance.close();
+        };
+
+        $scope.cancel = function () {
+          $uibModalInstance.dismiss('cancel');
+        };
+
+      }]
+    });
+
+    modalInstance.result.then(function () {
+      //Make the delete call. and in the success
+      vm.booksService.cleanLibrary().then(function (response) {
+        vm.state.reload();
+        vm.toaster.pop('success', "Success", "${response.title} added");
+      })
+    }, function (modalError) {
+    });
+
   }
 
   addBook() {

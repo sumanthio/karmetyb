@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Confirm your action</h3>
+</div>
+<div class="modal-body mx-auto" id="modal-body">
+    <div class="row">
+        <blockquote class="blockquote">
+            <p class="mb-0"> Are you sure?</p>
+        </blockquote>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 mx-auto">
+            <button class="btn btn-danger" type="button" ng-click="cleanLibrary()"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Library</button>
+            <button class="btn btn-info" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+
+    </div>
+</div>
+<div class="modal-footer text-center">
+    <button class="btn btn-sm btn-primary" type="button" ng-click="cancel()">Close</button>
+</div>

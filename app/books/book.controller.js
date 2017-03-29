@@ -6,7 +6,6 @@ class BookController {
         this.toaster = toaster;
         this.booksService = BooksService;
         this.data = {
-            "id": 1,
             "author": "Robert C. Martin",
             "categories": "programming",
             "publisher": "Prentice Hall",
@@ -47,7 +46,7 @@ class BookController {
 
         modalInstance.result.then(function (updatedBook) {
             //Make the put call. and in the success
-            vm.booksService.updateBookData(updatedBook.url, _.omit(updateBookData, ['url'])).then(function (response) {
+            vm.booksService.updateBookData(updatedBook.url, _.omit(updatedBook, ['url'])).then(function (response) {
                 vm.state.reload();
                 vm.toaster.pop('success', "Success", "${response.title} updated");
             })

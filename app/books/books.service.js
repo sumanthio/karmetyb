@@ -37,8 +37,8 @@ class BooksService {
         });
     }
 
-    deleteLibrary(id) {
-        //books delete
+    cleanLibrary() {
+        //Delete Library
         return this.booksBaseUrl.one('clean').remove().then(function (response) {
             return response;
         });
