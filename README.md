@@ -12,6 +12,7 @@ yarn install
 yarn run devserver
 
 # build for production with minification
-npm run build
+yarn run build
+
 ```
- * Server's config is at build/webpack.base.conf.js
+ * Server's config is at webpack.config.js
