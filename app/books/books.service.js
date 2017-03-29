@@ -8,7 +8,7 @@ class BooksService {
     }
 
     getBooksList() {
-        return this.books.getList();
+        return this.booksBaseUrl.all('books').getList()
     }
 
     addBook(bookData) {

@@ -27,11 +27,36 @@ let booksApp = angular.module('booksApp', [
   booksModule
 ]);
 
-booksApp.config(($locationProvider, $urlRouterProvider, $qProvider, $uibTooltipProvider, RestangularProvider) => {
+booksApp.config(($locationProvider, $urlRouterProvider, $qProvider, $uibTooltipProvider, $httpProvider) => {
   $locationProvider.hashPrefix('');
-  $urlRouterProvider.otherwise("/books");
+  $urlRouterProvider.otherwise("/list");
   $qProvider.errorOnUnhandledRejections(false);
   $uibTooltipProvider.options({
     delay: { show: 100, hide: 900 }
   });
+  $httpProvider.interceptors.push(function ($q) {
+    return {
+      'request': function (config) {
+        if (config.url.indexOf('book/') > -1) {
+          config.url = config.url.replace('book','books');
+        }
+        console.log(config.url);
+        return config || $q.when(config);
+      }
+
+    }
+  });
 });
+
+booksApp.run((Restangular)=>{
+  Restangular.setErrorInterceptor(function (response, deferred, responseHandler) {
+    console.log("Run",args);
+    debugger;
+    if (response.status >= 400) {
+      toaster.pop('error', "Error", "Something went wrong");
+      console.log('an error occured', response);
+      return false;
+    }
+    return true;
+  });
+})

@@ -75,11 +75,11 @@ const config = {
     })
   ],
   devServer: {
-    proxy: {
-      '/books': {
-        target: 'https://interview-api-staging.bytemark.co/books'
-      }
-    }
+    // proxy: {
+    //   '/books': {
+    //     target: 'https://interview-api-staging.bytemark.co/books'
+    //   }
+    // }
   }
 };
 

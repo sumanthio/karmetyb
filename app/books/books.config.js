@@ -4,7 +4,7 @@ class BooksConfig {
         'ngInject';
         $stateProvider
             .state('books', {
-                url: '/books',
+                url: '/list',
                 templateUrl: 'app/books/list.html',
                 controller: 'BooksController as books'
             })

@@ -12,8 +12,9 @@ class BooksListController {
 
   getBooksList() {
     let vm = this;
-    this.booksService.getBooksList().then(function (response) {
-      vm.list = response
+    this.booksService.getBooksList().then(
+      function (response) {
+      vm.list = response;
     }, function () {
       vm.toaster.pop('error', "Error", "Something went wrong");
     });
@@ -22,14 +23,13 @@ class BooksListController {
   getBookData() {
     let vm = this;
     this.booksService.getBookData(this.stateParams.id).then(function (response) {
-      vm.data = response
+      vm.data = response;
     }, function () {
       vm.toaster.pop('error', "Error", "Something went wrong");
     });
   }
 
   addBook() {
-    //POST call to book service 
     let vm = this
     let modalInstance = this.uibModal.open({
       animation: true,
@@ -39,12 +39,10 @@ class BooksListController {
         //Initialize in ES6 way  :?
         $scope.book = {
           title: '', publisher: '', categories: '', author: ''
-
-        }
+        };
         $scope.addBNewBook = function (book) {
           $uibModalInstance.close(book);
         };
-
         $scope.cancel = function () {
           $uibModalInstance.dismiss('cancel');
         };
@@ -56,7 +54,9 @@ class BooksListController {
       //Make the put call. and in the success
       vm.booksService.addBook(newBook).then(function (response) {
         vm.state.reload();
-        vm.toaster.pop('success', "Success", "Entire Library Deleted");
+        vm.toaster.pop('success', "Success", "Book Added");
+      }, function () {
+        vm.toaster.pop('error', "Error", "Something went wrong");
       })
     }, function (modalError) {
     });
@@ -93,6 +93,8 @@ class BooksListController {
       vm.booksService.updateBookData(updatedBook.url, _.omit(updatedBook, ['url', 'lastCheckedOut', 'lastCheckedOutBy'])).then(function (response) {
         vm.state.reload();
         vm.toaster.pop('success', "Success", "${response.title} updated");
+      }, function () {
+        vm.toaster.pop('error', "Error", "Something went wrong");
       })
     }, function (modalError) {
     });
@@ -129,6 +131,8 @@ class BooksListController {
       vm.booksService.deleteBook(selectedItem).then(function () {
         vm.toaster.pop('info', "Alert", "Book removed from library");
         vm.state.go('books', {}, { reload: true });
+      }, function () {
+        vm.toaster.pop('error', "Error", "Something went wrong");
       })
 
     }, function (modalError) {
@@ -159,7 +163,9 @@ class BooksListController {
       //Make the delete call. and in the success
       vm.booksService.cleanLibrary().then(function (response) {
         vm.state.reload();
-        vm.toaster.pop('success', "Success", "${response.title} added");
+        vm.toaster.pop('info', "Alert", "Library deleted");
+      }, function () {
+        vm.toaster.pop('error', "Error", "Something went wrong");
       })
     }, function (modalError) {
     });
