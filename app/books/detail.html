@@ -1,25 +1,41 @@
 <div class="row" ng-init="books.getBookData()">
-    <div class="col-sm-4 text-center">
-        <img src="http://placehold.it/150x250" class="img-rounded">
-    </div>
-    <div class="col-sm-8">
-        <blockquote class="blockquote">
-            <p class="mb-0">{{books.data.title}}</p>
-            <footer class="blockquote-footer"><cite title="Source Title">{{books.data.author}}</cite></footer>
-        </blockquote>
+    <div class="col-xs-10 col-sm-10 col-md-10 offset-md-1 offset-xs-1 offset-sm-1">
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-pills card-header-pills">
+                    <li class="nav-item">
+                        <span class="nav-link">{{books.data.title}}'s Details</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-sm-4 text-center">
+                        <img src="http://placehold.it/150x250" class="img-rounded">
+                    </div>
+                    <div class="col-sm-8">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">{{books.data.title}}</p>
+                            <footer class="blockquote-footer"><cite title="Source Title">{{books.data.author}}</cite></footer>
+                        </blockquote>
 
-        <dl class="row well text-xs-center">
-            <dt class="col-sm-3">ID</dt>
-            <dd class="col-sm-9">{{books.data.id}}</dd>
-            <dt class="col-sm-3">Publisher</dt>
-            <dd class="col-sm-9">{{books.data.publisher}}</dd>
-            <dt class="col-sm-3">Categories</dt>
-            <dd class="col-sm-9">{{books.data.categories}}</dd>
-        </dl>
-        <div class="row">
-            <div class="col-xs-12 mx-auto">
-                <button class="btn btn-primary" ng-click="books.editBookData(books.data)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
-                <button class="btn btn-danger" ng-click="books.deleteBook(books.data)"><i class="fa fa-trash" aria-hidden="true"></i> Remove</button>
+                        <dl class="row well offset-1">
+                            <dt class="col-3">URL</dt>
+                            <dd class="col-9">{{books.data.url}}</dd>
+                            <dt class="col-3">Publisher</dt>
+                            <dd class="col-9">{{books.data.publisher}}</dd>
+                            <dt class="col-3">Categories</dt>
+                            <dd class="col-9">{{books.data.categories}}</dd>
+                        </dl>
+                        <div class="row">
+                            <div class="col-xs-12 mx-auto">
+                                <button class="btn btn-primary" ng-click="books.editBookData(books.data)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
+                                <button class="btn btn-danger" ng-click="books.deleteBook(books.data)"><i class="fa fa-trash" aria-hidden="true"></i> Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

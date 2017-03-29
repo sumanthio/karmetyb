@@ -27,9 +27,10 @@ let booksApp = angular.module('booksApp', [
   booksModule
 ]);
 
-booksApp.config(($locationProvider, $urlRouterProvider, $uibTooltipProvider) => {
+booksApp.config(($locationProvider, $urlRouterProvider, $qProvider, $uibTooltipProvider, RestangularProvider) => {
   $locationProvider.hashPrefix('');
   $urlRouterProvider.otherwise("/books");
+  $qProvider.errorOnUnhandledRejections(false);
   $uibTooltipProvider.options({
     delay: { show: 100, hide: 900 }
   });

@@ -18,7 +18,7 @@ class BooksService {
 
     getBookData(id) {
         //books/id
-        return this.books.getList().then(function (response) {
+        return this.booksBaseUrl.all('books').get(id).then(function (response) {
             return response;
         });
     }
@@ -38,7 +38,7 @@ class BooksService {
     }
 
     cleanLibrary() {
-        //Delete Library delete
+        //Delete Library
         return this.booksBaseUrl.one('clean').remove().then(function (response) {
             return response;
         });

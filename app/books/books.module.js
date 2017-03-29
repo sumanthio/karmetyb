@@ -8,7 +8,7 @@ booksModule.config(BooksConfig);
 
 booksModule.service('BooksBaseService', (Restangular) => {
     return Restangular.withConfig(function (RestangularConfigurer) {
-        RestangularConfigurer.setBaseUrl('/api');
+        RestangularConfigurer.setBaseUrl('https://interview-api-staging.bytemark.co');
     });
 });
 
