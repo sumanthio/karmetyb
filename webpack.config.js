@@ -75,16 +75,11 @@ const config = {
     })
   ],
   devServer: {
-     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+    proxy: {
+      '/books': {
+        target: 'https://interview-api-staging.bytemark.co/books'
+      }
     }
-    // proxy: {
-    //   '/api/*': {
-    //     target: 'https://interview-api-staging.bytemark.co/books',
-    //   }
-    // }
   }
 };
 
