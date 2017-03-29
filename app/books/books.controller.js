@@ -25,6 +25,7 @@ class BooksListController {
         url: "/book/2"
       }
     ];
+    this.data = this.list[0];
   };
 
   getBooksList() {
@@ -70,6 +71,42 @@ class BooksListController {
     });
 
   }
+
+  editBookData(book) {
+        //open up modal and PUT call to BookService
+        let vm = this
+        let modalInstance = this.uibModal.open({
+            animation: true,
+            size: 'lg',
+            templateUrl: 'app/books/edit-book.html',
+            controller: ['$scope', 'bookData', '$uibModalInstance', function ($scope, bookData, $uibModalInstance) {
+                $scope.book = bookData;
+                $scope.update = function (book) {
+                    $uibModalInstance.close(book);
+                };
+
+                $scope.cancel = function () {
+                    $uibModalInstance.dismiss('cancel');
+                };
+
+            }],
+            resolve: {
+                bookData: function () {
+                    return book;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (updatedBook) {
+          //Make the put call. and in the success
+          vm.booksService.updateBookData(updatedBook.url, _.omit(updatedBook, ['url', 'lastCheckedOut', 'lastCheckedOutBy'])).then(function (response) {
+            vm.state.reload();
+            vm.toaster.pop('success', "Success", "${response.title} updated");
+          })
+        }, function (modalError) {
+        });
+
+    }
 
   deleteBook(book) {
         //open up delete book confirmation
