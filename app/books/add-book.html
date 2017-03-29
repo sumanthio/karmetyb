@@ -3,36 +3,36 @@
 </div>
 <div class="modal-body" id="modal-body">
     <div class="row">
-            <div class="col-sm-10">
+            <div class="col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-1">
                 <div class="form-group row">
                     <label for="example-text-input" class="col-4 col-form-label">Title</label>
                     <div class="col-8">
-                        <input class="form-control" type="text" ng-model="book.title">
+                        <input class="form-control" placeholder="Enter title" type="text" ng-model="book.title">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="example-text-input" class="col-4 col-form-label">Author</label>
                     <div class="col-8">
-                        <input class="form-control" type="text" ng-model="book.author">
+                        <input class="form-control" placeholder="Enter author" type="text" ng-model="book.author">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="example-text-input" class="col-4 col-form-label">Categories</label>
                     <div class="col-8">
-                        <input class="form-control" type="text" ng-model="book.categories">
+                        <input class="form-control" placeholder="Enter categories" type="text" ng-model="book.categories">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="example-text-input" class="col-4 col-form-label">Publisher</label>
                     <div class="col-8">
-                        <input class="form-control" type="text" ng-model="book.publisher">
+                        <input class="form-control" placeholder="Enter publisher" type="text" ng-model="book.publisher">
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12 mx-auto">
-                <button class="btn btn-success" type="button" ng-click="update(book)"><i class="fa fa-check-square" aria-hidden="true"></i> Update</button>
+                <button class="btn btn-success" type="button" ng-click="add(book)"><i class="fa fa-check-plus" aria-hidden="true"></i> Add</button>
                 <button class="btn btn-info" type="button" ng-click="cancel()">Cancel</button>
             </div>
         </div>

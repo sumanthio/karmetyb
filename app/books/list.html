@@ -1,6 +1,20 @@
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12">
-    <div class="card-deck" ng-init="books.getBooksList()">
+  <div class="col-xs-10 col-sm-10 col-md-10 col-md-offset-1">
+    <div class="card text-center">
+      <div class="card-header clearfix">
+        <ul class="nav nav-pills card-header-pills float-left">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+        </ul>
+        <ul class="nav nav-pills card-header-pills float-right">
+          <li class="nav-item">
+            <button class="nav-link active" ng-click="books.addBook()">Add Book</button>
+          </li>
+        </ul>
+      </div>
+      <div class="card-block">
+        <div class="card-deck" ng-init="books.getBooksList()">
           <div class="card col-xs-6 col-sm-6 col-md-4 m-3" ng-repeat="book in books.list">
             <img class="card-img-top" src="http://placehold.it/250x125" alt="Card image cap">
             <div class="card-block">
@@ -14,5 +28,7 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
   </div>
 </div>

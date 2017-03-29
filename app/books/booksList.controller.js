@@ -1,9 +1,10 @@
 class BooksListController {
-  constructor($state, BooksService, toaster) {
+  constructor($state, BooksService, toaster, $uibModal) {
     'ngInject';
     this.state = $state;
     this.booksService = BooksService;
     this.toaster = toaster;
+    this.uibModal = $uibModal;
     this.list = [
       {
         author: "Ash Maurya",
@@ -39,8 +40,39 @@ class BooksListController {
     //delete call to bookService
   }
 
-  addBookToLibrary() {
+  addBook() {
     //POST call to book service 
+    let vm = this
+    let modalInstance = this.uibModal.open({
+      animation: true,
+      size: 'md',
+      templateUrl: 'app/books/add-book.html',
+      controller: ['$scope', '$uibModalInstance', function ($scope, $uibModalInstance) {
+        //Initialize in ES6 way  :?
+        $scope.book = {
+          title:'', publisher:'', categories:'', author:''
+          
+        }
+        $scope.update = function (book) {
+          $uibModalInstance.close(book);
+        };
+
+        $scope.cancel = function () {
+          $uibModalInstance.dismiss('cancel');
+        };
+
+      }]
+    });
+
+    modalInstance.result.then(function (updatedBook) {
+      //Make the put call. and in the success
+      vm.booksService.updateBookData(updatedBook.url, _.omit(updateBookData, ['url'])).then(function (response) {
+        vm.state.reload();
+        vm.toaster.pop('success', "Success", "${response.title} updated");
+      })
+    }, function (modalError) {
+    });
+
   }
 
 }
