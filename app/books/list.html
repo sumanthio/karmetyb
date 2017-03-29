@@ -26,7 +26,7 @@
             </div>
             <div class="card-footer text-xs-center">
               <button ui-sref="single({id:book.id})" class="btn btn-success btn-sm">View</button>
-              <button class="btn btn-danger btn-sm"><i class="fa fa-times" aria-hidden="true"></i> Remove</button>
+              <button class="btn btn-danger btn-sm" ng-click="books.deleteBook(book)"><i class="fa fa-times" aria-hidden="true"></i> Remove</button>
               <small class="text-right">2 mins ago</small>
             </div>
           </div>

@@ -1,6 +1,5 @@
 import BooksConfig from './books.config';
-import BooksListController from './booksList.controller';
-import BookController from './book.controller';
+import BooksController from './books.controller';
 import BooksService from './books.service';
 
 let booksModule = angular.module('booksApp.books', [])
@@ -12,10 +11,9 @@ booksModule.service('BooksBaseService', (Restangular) => {
         RestangularConfigurer.setBaseUrl('/api');
     });
 });
-booksModule.service('BooksService', BooksService);
 
-booksModule.controller('BooksListController', BooksListController);
-booksModule.controller('BookController', BookController);
+booksModule.service('BooksService', BooksService);
+booksModule.controller('BooksController', BooksController);
 
 
 export default booksModule = booksModule.name;

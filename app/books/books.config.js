@@ -6,7 +6,7 @@ class BooksConfig {
             .state('books', {
                 url: '/books',
                 templateUrl: 'app/books/list.html',
-                controller: 'BooksListController as books'
+                controller: 'BookController as books'
             })
             .state('single', {
                 url: '/book/:id',
