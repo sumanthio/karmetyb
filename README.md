@@ -8,7 +8,7 @@
 # install dependencies
 yarn install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:9100
 yarn run devserver
 
 # build for production with minification
